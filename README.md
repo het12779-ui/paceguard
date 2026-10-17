@@ -16,6 +16,8 @@ still time to act.
 ![Tests](https://img.shields.io/badge/tests-46%20passing-brightgreen)
 ![License](https://img.shields.io/badge/license-MIT-blue)
 
+![PaceGuard dashboard: budget in flight, pacing per campaign, and open guardrails](docs/screenshots/dashboard.webp)
+
 ---
 
 ## Why this belongs in an Advertising Cloud
@@ -57,6 +59,34 @@ reviewable rather than implied.
 - **Audit trail** — every budget change is recorded with actor, before and after.
 - **Dashboard** — account switch, KPI strip, pacing bars against the curve, alert feed and a
   per-campaign drawer with a daily delivery chart.
+
+---
+
+## The dashboard
+
+Two screens carry the product argument.
+
+**Campaign pacing** (top of this page) is the product, not a decorative chart.
+Each row carries budget, spend, pace against the campaign's *own* curve, guardrail
+state and today's remaining allowance — so the ASAP campaign spending fast is
+visibly **not** flagged while the even-paced one beside it is.
+
+![Campaign detail drawer: daily delivery against plan and the audit trail](docs/screenshots/campaign-detail.webp)
+
+**Campaign detail.** Click any row and the drawer answers *why*: daily delivery
+against plan, projected final spend, projected overspend, and the budget-change
+audit trail. An alert you cannot drill into is just an accusation.
+
+Design notes, because these are decisions rather than decoration:
+
+- motion is ambient and entrance-only — panels rise, bars grow once, a critical
+  state pulses. Nothing moves *with* the data, so the screen stays readable
+  while it polls.
+- `prefers-reduced-motion: reduce` turns all of it off.
+- plain ES modules and one stylesheet served by the app itself: no build step,
+  no CDN, works offline.
+- every panel is keyboard reachable — `Enter`/`Space` opens a campaign, `Esc`
+  closes the drawer.
 
 ---
 

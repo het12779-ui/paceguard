@@ -247,6 +247,18 @@ const App = {
         </div>
       </main>
 
+      <footer class="app-footer">
+        <span class="footer-brand">PaceGuard</span>
+        <span class="footer-rule"></span>
+        <span>{{ overview.items.length }} campaigns in flight</span>
+        <span>{{ alerts.length }} open guardrails</span>
+        <span class="footer-gap"></span>
+        <span class="footer-live" :class="{ 'is-down': error }">
+          <i></i>{{ error ? 'API unreachable' : 'API connected' }}
+        </span>
+        <span class="footer-mono">as of {{ asOf }}</span>
+      </footer>
+
       <campaign-drawer :detail="detail" @close="detail = null" />
       <div v-if="toast" class="toast" role="status">{{ toast }}</div>
     </div>
