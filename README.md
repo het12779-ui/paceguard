@@ -66,6 +66,10 @@ reviewable rather than implied.
 
 Two screens carry the product argument.
 
+![Load animation: panels rise, pacing bars grow once, then the screen holds still](docs/screenshots/motion.gif)
+
+The motion is deliberate and thin: it happens once on load and then stops. A dashboard that keeps animating is a dashboard that is hiding its refresh.
+
 **Campaign pacing** (top of this page) is the product, not a decorative chart.
 Each row carries budget, spend, pace against the campaign's *own* curve, guardrail
 state and today's remaining allowance — so the ASAP campaign spending fast is
